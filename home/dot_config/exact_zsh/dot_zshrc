@@ -1,0 +1,7 @@
+source "$ZDOTDIR/exports.zsh"
+source "$ZDOTDIR/aliases/general.zsh"
+source "$ZDOTDIR/aliases/git.zsh"
+source "$ZDOTDIR/aliases/docker.zsh"
+source "$ZDOTDIR/functions.zsh"
+source "$ZDOTDIR/completions.zsh"
+source "$ZDOTDIR/prompt.zsh"

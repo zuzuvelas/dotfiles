@@ -1,0 +1,26 @@
+[user]
+{{- if eq .user "zuzuvelas" }}
+  name = "Jordon Shields"
+{{- else if eq .user "jshields" }}
+  name = "Jordon Shields"
+{{- end }}
+  email = {{ .email | quote }}
+
+[init]
+  defaultBranch = main
+
+[pull]
+  rebase = true
+
+[push]
+  autoSetupRemote = true
+
+[core]
+  excludesfile = ~/.config/git/ignore
+
+[merge]
+  ff = only
+
+[alias]
+  lg = log --oneline --graph --decorate --all
+  st = status -s

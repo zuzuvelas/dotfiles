@@ -1,0 +1,22 @@
+{{- $interactive := stdinIsATTY -}}
+
+{{- $profile := "personal" -}}
+{{- if hasKey . "profile" -}}
+{{-   $profile = .profile -}}
+{{- else if $interactive -}}
+{{-   $profile = promptChoice "Select profile" (list "personal" "work") -}}
+{{- end -}}
+
+{{- $user := "zuzuvelas" -}}
+{{- if hasKey . "user" -}}
+{{-   $user = .user -}}
+{{- else if $interactive -}}
+{{-   $user = promptChoice "Select user" (list "zuzuvelas" "jshields") -}}
+{{- end -}}
+
+{{- $email := promptStringOnce . "email" "Email address" -}}
+
+[data]
+  profile = {{ $profile | quote }}
+  user = {{ $user | quote }}
+  email = {{ $email | quote }}

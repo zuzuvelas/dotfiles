@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+
+# Editor temp files
+*~
+*.swp
+*.swo
+
+# Node
+node_modules/
+
+# Build artifacts
+*.class
+*.jar
+build/
+out/
