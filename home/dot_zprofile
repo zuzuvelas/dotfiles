@@ -1,4 +1,5 @@
-# Load Homebrew environment on macOS.
-if [[ $OSTYPE =~ 'darwin*' ]] && [[ -x /opt/homebrew/bin/brew ]] {
-	eval "$(/opt/homebrew/bin/brew shellenv)"
-}
+# Homebrew — sets PATH, MANPATH, INFOPATH for the current session.
+# Required on Apple Silicon: /opt/homebrew/bin is not in the default PATH.
+if [[ $OSTYPE == darwin* ]] && [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi

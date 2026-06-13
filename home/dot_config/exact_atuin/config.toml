@@ -1,0 +1,25 @@
+# Atuin shell history config
+
+# UI
+style = "compact"
+inline_height = 20
+show_help = false
+show_tabs = false
+show_preview = false
+
+# Search & filter
+search_mode = "fuzzy"
+filter_mode = "global"
+workspaces = true                              # filter by git repo root, not exact directory
+filter_mode_shell_up_key_binding = "session"  # up arrow shows current session only; ctrl+r is global
+
+# Behavior
+enter_accept = false    # puts selection on command line rather than executing immediately
+# keymap_mode = "vim-insert"  # vim keys in the search UI only, independent of shell vi mode
+
+# Privacy
+secrets_filter = true
+store_failed = false    # don't store commands that returned non-zero exit code
+
+# Sync — disabled; run `atuin login` and set auto_sync = true to enable cross-machine history
+auto_sync = false

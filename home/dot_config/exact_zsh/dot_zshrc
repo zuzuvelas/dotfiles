@@ -4,7 +4,12 @@ source "$ZDOTDIR/options.zsh"
 # Environment
 source "$ZDOTDIR/exports.zsh"
 
-# Plugins
+# Bootstrap compinit before plugins so plugins can call compdef at source time.
+# completions.zsh runs a full compinit after sheldon — this -C call just makes
+# compdef available early.
+autoload -Uz compinit && compinit -C
+
+# Plugins — must load before completions so plugins can contribute to $fpath
 eval "$(sheldon source)"
 
 # Completions
@@ -18,10 +23,16 @@ source "$ZDOTDIR/aliases/docker.zsh"
 # Functions
 source "$ZDOTDIR/functions.zsh"
 
+# fzf — shell integration for Ctrl+T (files) and Alt+C (dirs)
+# Must come before atuin so atuin can override fzf's Ctrl+R binding
+eval "$(fzf --zsh)"
+
 # Toolchain
 eval "$(mise activate zsh)"
+eval "$(zoxide init zsh)"
+eval "$(thefuck --alias)"
 
-# History
+# History — overrides fzf's Ctrl+R with atuin's fuzzy search
 eval "$(atuin init zsh)"
 
 # Prompt
