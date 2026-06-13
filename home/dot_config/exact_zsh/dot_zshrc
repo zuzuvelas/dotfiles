@@ -1,7 +1,28 @@
+# Shell options
+source "$ZDOTDIR/options.zsh"
+
+# Environment
 source "$ZDOTDIR/exports.zsh"
+
+# Plugins
+eval "$(sheldon source)"
+
+# Completions
+source "$ZDOTDIR/completions.zsh"
+
+# Aliases
 source "$ZDOTDIR/aliases/general.zsh"
 source "$ZDOTDIR/aliases/git.zsh"
 source "$ZDOTDIR/aliases/docker.zsh"
+
+# Functions
 source "$ZDOTDIR/functions.zsh"
-source "$ZDOTDIR/completions.zsh"
+
+# Toolchain
+eval "$(mise activate zsh)"
+
+# History
+eval "$(atuin init zsh)"
+
+# Prompt
 source "$ZDOTDIR/prompt.zsh"

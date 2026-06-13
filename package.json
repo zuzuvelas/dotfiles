@@ -5,7 +5,7 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{json,md,toml}": "prettier --write",
+    "*.{json,md}": "prettier --write",
     "*.zsh": "shellcheck"
   },
   "devDependencies": {

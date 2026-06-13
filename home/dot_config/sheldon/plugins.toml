@@ -1,0 +1,31 @@
+# Sheldon plugin manager — run `sheldon lock` after changes to regenerate plugins.lock
+
+shell = "zsh"
+
+# Autosuggestions — fish-like greyed history suggestions (tab or → to accept)
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+
+# History search — up/down arrows filter history by current typed prefix
+[plugins.zsh-history-substring-search]
+github = "zsh-users/zsh-history-substring-search"
+
+# Bundler — completion for bundle commands + be/bi/bo aliases (used for Fastlane)
+[plugins.bundler]
+remote = "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/bundler/bundler.plugin.zsh"
+
+# Gradle — tab completion for gradle and gradlew tasks
+[plugins.gradle-completion]
+github = "gradle/gradle-completion"
+
+# Dircycle — Alt+← / Alt+→ to cycle the directory stack
+[plugins.dircycle]
+remote = "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/dircycle/dircycle.plugin.zsh"
+
+# Sudo — double-tap Esc to prepend sudo to the current command
+[plugins.sudo]
+remote = "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh"
+
+# Syntax highlighting — must be last; colours commands as you type
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
