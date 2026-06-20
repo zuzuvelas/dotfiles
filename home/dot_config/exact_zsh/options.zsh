@@ -5,6 +5,10 @@ typeset -g WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'  # excludes / so ctrl+w stops at p
 setopt COMBINING_CHARS    # handle macOS NFD unicode correctly
 setopt NO_BEEP
 
+# Start each prompt in vi insert mode
+function zle-line-init { zle -K viins; }
+zle -N zle-line-init
+
 # Directory navigation
 typeset -g DIRSTACKSIZE=9
 setopt AUTO_CD            # bare directory name acts as cd

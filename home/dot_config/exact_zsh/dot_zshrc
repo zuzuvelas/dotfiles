@@ -12,6 +12,11 @@ autoload -Uz compinit && compinit -C
 # Plugins — must load before completions so plugins can contribute to $fpath
 eval "$(sheldon source)"
 
+# Dircycle — bind Meta+←/→ in vi insert mode
+# Must come after sheldon so insert-cycled{left,right} widgets exist
+bindkey -M viins '\eb' insert-cycledleft
+bindkey -M viins '\ef' insert-cycledright
+
 # Completions
 source "$ZDOTDIR/completions.zsh"
 
