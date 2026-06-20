@@ -36,6 +36,9 @@ if [[ $OSTYPE != darwin* && -z "$SSH_AUTH_SOCK" ]]; then
   eval "$(ssh-agent -s)" > /dev/null
 fi
 
+# Starship
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+
 # Zoxide
 export _ZO_DATA_DIR="$XDG_DATA_HOME/zoxide"
 export _ZO_EXCLUDE_DIRS="**/node_modules"
