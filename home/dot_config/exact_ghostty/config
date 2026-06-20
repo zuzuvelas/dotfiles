@@ -1,0 +1,33 @@
+# Font
+font-family = "CommitMono Nerd Font"
+font-size = 14
+
+# Font features
+font-feature = calt
+font-feature = liga
+font-feature = zero
+
+# Window
+background-opacity     = 0.67
+background-blur-radius = 20
+window-padding-x       = 4
+window-padding-y       = 4
+window-padding-color   = extend-always
+window-colorspace      = display-p3
+cursor-style-blink     = false
+
+# Colors
+theme = light:zuppuccin-latte.conf,dark:zuppuccin-mocha.conf
+
+# Shell integration
+shell-integration-features = no-cursor,sudo
+
+# Quick terminal
+quick-terminal-position           = center
+quick-terminal-size               = 70%,90%
+quick-terminal-animation-duration = 0
+keybind = global:super+shift+\=toggle_quick_terminal
+
+# macOS
+macos-option-as-alt     = left
+mouse-hide-while-typing = true
