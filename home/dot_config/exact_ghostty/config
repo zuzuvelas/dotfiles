@@ -29,5 +29,5 @@ quick-terminal-animation-duration = 0
 keybind = global:super+shift+\=toggle_quick_terminal
 
 # macOS
-macos-option-as-alt     = left
+macos-option-as-alt     = right
 mouse-hide-while-typing = true

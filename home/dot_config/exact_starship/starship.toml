@@ -90,41 +90,41 @@ crust     = "#dde0e8"
 [os]
 disabled = false
 style = "bg:mauve fg:crust"
-format = "[ $symbol ]($style)"
+format = "[$symbol ]($style)"
 
 [os.symbols]
 # macOS / Windows
-Macos   = ""
+Macos = ""
 Windows = ""
 
 # Primary Linux installs
-Arch    = "󰣇"
+Arch = "󰣇"
 CachyOS = " "
-Ubuntu  = ""
+Ubuntu = ""
 
 # Arch-based
-Manjaro     = ""
+Manjaro = ""
 EndeavourOS = ""
-Garuda      = ""
+Garuda = ""
 
 # Debian-based
 Debian = ""
-Mint   = "󰣭"
-Pop    = ""
+Mint = "󰣭"
+Pop = ""
 
 # RPM-based
-Fedora              = ""
-CentOS              = ""
-Redhat              = ""
-RedHatEnterprise    = ""
+Fedora = ""
+CentOS = ""
+Redhat = ""
+RedHatEnterprise = ""
 
 # Other notable
-NixOS  = ""
+NixOS = ""
 Gentoo = ""
 Alpine = ""
 
 # Generic fallbacks
-Linux   = "󰌽"
+Linux = "󰌽"
 Android = ""
 Unknown = " "
 
