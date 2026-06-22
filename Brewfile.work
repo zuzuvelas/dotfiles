@@ -1,0 +1,11 @@
+# Dev tools
+brew "redis"
+brew "android-platform-tools"
+
+# Design
+cask "gimp"
+cask "figma"
+cask "inkscape"
+
+# Communication
+cask "linphone"
