@@ -12,10 +12,14 @@ autoload -Uz compinit && compinit -C -d "${XDG_CACHE_HOME}/zsh/compdump"
 # Plugins — must load before completions so plugins can contribute to $fpath
 eval "$(sheldon source)"
 
-# Dircycle — bind Meta+←/→ in vi insert mode
+# Word movement in vi insert mode
+bindkey -M viins '\eb' backward-word
+bindkey -M viins '\ef' forward-word
+
+# Dircycle — bind Meta+↑/↓ in vi insert mode
 # Must come after sheldon so insert-cycled{left,right} widgets exist
-bindkey -M viins '\eb' insert-cycledleft
-bindkey -M viins '\ef' insert-cycledright
+bindkey -M viins '\e[1;3A' insert-cycledleft
+bindkey -M viins '\e[1;3B' insert-cycledright
 
 # Word delete — Option+Backspace in vi insert mode
 bindkey -M viins '\e^?' backward-kill-word
