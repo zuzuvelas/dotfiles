@@ -1,0 +1,8 @@
+[settings]
+auto_install = true
+
+[tools]
+java   = "temurin-21"
+node   = "lts"
+ruby   = "latest"
+python = "latest"
