@@ -16,6 +16,12 @@
 
 {{- $email := promptStringOnce . "email" "Email address" -}}
 
+encryption = "age"
+
+[age]
+  identity = "~/.config/chezmoi/age-key.txt"
+  recipient = "age1xrpcakjkejea2c2y5zzu339sckwtfc9zgzmjrfxtws4caftncclqdxrhsq"
+
 [data]
   profile = {{ $profile | quote }}
   user = {{ $user | quote }}

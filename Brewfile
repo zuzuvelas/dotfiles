@@ -19,6 +19,8 @@ brew "erdtree"
 brew "mise"
 
 # Dev tools
+brew "age"
+brew "bitwarden-cli"
 brew "ktlint"
 brew "shellcheck"
 

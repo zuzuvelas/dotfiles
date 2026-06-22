@@ -10,6 +10,7 @@ error()   { printf '\033[0;31mError:\033[0m %s\n' "$*" >&2; exit 1; }
 REPO_URL="https://github.com/zuzuvelas/dotfiles"
 GITHUB_USERNAME="zuzuvelas"
 CHEZMOI_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/chezmoi"
+AGE_KEY_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/chezmoi/age-key.txt"
 
 # --- OS detection ---
 case "$(uname -s)" in
@@ -33,6 +34,44 @@ if [[ "$OS" == "macos" ]]; then
   success "Homebrew ready"
 fi
 
+# --- age key setup ---
+setup_age_key() {
+  if [[ -f "$AGE_KEY_PATH" ]]; then
+    success "age key found"
+    return
+  fi
+
+  if [[ "$OS" == "linux" ]]; then
+    error "age key not found at $AGE_KEY_PATH. On Linux, install the Bitwarden CLI manually,\n       run: bw login && bw unlock\n       then: bw get notes chezmoi-age-key > $AGE_KEY_PATH && chmod 600 $AGE_KEY_PATH\n       then re-run this script."
+  fi
+
+  info "age key not found — retrieving from Bitwarden..."
+
+  if ! command -v bw &>/dev/null; then
+    brew install bitwarden-cli
+  fi
+
+  local bw_status
+  bw_status=$(bw status 2>/dev/null | grep -o '"status":"[^"]*"' | cut -d'"' -f4 || echo "unauthenticated")
+
+  if [[ "$bw_status" == "unauthenticated" ]]; then
+    info "Log into Bitwarden..."
+    bw login
+  fi
+
+  info "Unlock your Bitwarden vault..."
+  export BW_SESSION=$(bw unlock --raw)
+
+  bw sync --quiet
+
+  mkdir -p "$(dirname "$AGE_KEY_PATH")"
+  bw get notes "chezmoi-age-key" > "$AGE_KEY_PATH"
+  chmod 600 "$AGE_KEY_PATH"
+  success "age key saved to $AGE_KEY_PATH"
+}
+
+setup_age_key
+
 # --- chezmoi + dotfiles ---
 if [[ "$OS" == "macos" ]]; then
   if ! command -v chezmoi &>/dev/null; then
@@ -46,7 +85,6 @@ if [[ "$OS" == "macos" ]]; then
     chezmoi init --apply "$REPO_URL"
   fi
 else
-  # Linux: install chezmoi and init dotfiles in one shot
   info "Installing chezmoi and applying dotfiles..."
   sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --apply "$GITHUB_USERNAME"
 fi
