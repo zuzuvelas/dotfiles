@@ -28,6 +28,13 @@ if [[ $OSTYPE == darwin* ]]; then
   export HOMEBREW_NO_EMOJI='1'
 fi
 
+# JetBrains Toolbox CLI launchers (idea, studio, etc.)
+if [[ $OSTYPE == darwin* ]]; then
+  path=("$HOME/Library/Application Support/JetBrains/Toolbox/scripts" "${path[@]}")
+elif [[ $OSTYPE == linux* ]]; then
+  path=("$HOME/.local/share/JetBrains/Toolbox/scripts" "${path[@]}")
+fi
+
 # npm
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 
