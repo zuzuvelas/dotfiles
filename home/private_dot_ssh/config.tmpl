@@ -1,0 +1,31 @@
+# Managed by chezmoi — edit via: chezmoi edit ~/.ssh/config
+
+# --- Global defaults ---
+Host *
+  # Use the XDG-respecting key location
+  IdentityFile ~/.ssh/id_ed25519
+  # Reuse existing connections — faster subsequent connections to the same host
+  ControlMaster auto
+  ControlPath ~/.ssh/control/%r@%h:%p
+  ControlPersist 2m
+  # Reduce disconnections on idle connections
+  ServerAliveInterval 60
+  ServerAliveCountMax 3
+{{ if eq .chezmoi.os "darwin" }}
+  # macOS Keychain — store passphrase on first use, never prompted again
+  UseKeychain yes
+  AddKeysToAgent yes
+{{ end }}
+
+# --- Personal hosts ---
+# Add entries here as needed, e.g.:
+# Host my-server
+#   HostName 192.168.1.100
+#   User zuzuvelas
+#   IdentityFile ~/.ssh/id_ed25519
+
+# --- Work hosts ---
+# Host work-server
+#   HostName work.example.com
+#   User jshields
+#   IdentityFile ~/.ssh/work_ed25519
