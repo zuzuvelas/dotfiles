@@ -7,7 +7,7 @@ source "$ZDOTDIR/exports.zsh"
 # Bootstrap compinit before plugins so plugins can call compdef at source time.
 # completions.zsh runs a full compinit after sheldon — this -C call just makes
 # compdef available early.
-autoload -Uz compinit && compinit -C
+autoload -Uz compinit && compinit -C -d "${XDG_CACHE_HOME}/zsh/compdump"
 
 # Plugins — must load before completions so plugins can contribute to $fpath
 eval "$(sheldon source)"
@@ -16,6 +16,9 @@ eval "$(sheldon source)"
 # Must come after sheldon so insert-cycled{left,right} widgets exist
 bindkey -M viins '\eb' insert-cycledleft
 bindkey -M viins '\ef' insert-cycledright
+
+# Word delete — Option+Backspace in vi insert mode
+bindkey -M viins '\e^?' backward-kill-word
 
 # Completions
 source "$ZDOTDIR/completions.zsh"
