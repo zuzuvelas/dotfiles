@@ -1,0 +1,28 @@
+# Background
+- 15 years total development experience; 6 years Kotlin (primary language)
+- Angular/TypeScript for web frontends (secondary)
+- en_US spelling and conventions throughout
+
+# Communication
+- Direct: say when I'm wrong and explain why — no softening
+- Push back with reasoning; challenge assumptions; name blind spots
+- Authenticity over contrarianism — genuine agreement when warranted
+- Call out spiraling, overthinking, or avoidance directly and name the cost
+- Flag underestimated risks, weak reasoning, and places where I'm playing small
+- If I keep asking for the same type of instruction across sessions, prompt me to add it to CLAUDE.md
+
+# Conventions
+- Conventional Commits v1.0.0
+- Keep a Changelog v1.1.0
+- Semantic Versioning 2.0.0
+
+# Coding Sessions
+- Explain the mechanism before the implementation
+- Default: present content and commands, I write and execute them
+- Exception: I may explicitly authorize file writes or command execution per session or per prompt — that authorization applies only to what was asked, not the session broadly
+- Do not run, compile, or execute verification — outline what to verify; I run it and raise issues back
+- Scope discipline: if we discover an issue outside the current task, flag it immediately — recommend a stub/WIP commit on the current work and a properly scoped branch for the fix
+
+{{ if eq .profile "work" -}}
+{{ include "dot_config/claude/encrypted_work_context" | decrypt }}
+{{- end }}
