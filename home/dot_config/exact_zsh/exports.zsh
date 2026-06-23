@@ -10,6 +10,21 @@ path=("$ANDROID_HOME/emulator" "$ANDROID_HOME/platform-tools" "${path[@]}")
 export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
 export CLAUDE_CODE_DISABLE_TERMINAL_TITLE='1'
 
+# fzf — fuzzy finder defaults
+# Colors use ANSI terminal slots: inherits Zuppuccin palette from Ghostty
+export FZF_DEFAULT_OPTS="\
+  --color=dark,fg:-1,bg:-1,hl:4,fg+:7,bg+:0,gutter:0,hl+:4,info:8,border:8,prompt:4,pointer:3,marker:3,spinner:8,header:6 \
+  --height=40% \
+  --layout=reverse \
+  --border=rounded \
+  --info=inline \
+  --no-separator \
+  --bind=ctrl-f:half-page-down \
+  --bind=ctrl-b:half-page-up"
+
+# File preview via bat when using ctrl+T (file search only — not history or dir jump)
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+
 # GPG — tell the agent which terminal to use for passphrase prompts
 GPG_TTY=$(tty)
 export GPG_TTY

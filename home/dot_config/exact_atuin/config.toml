@@ -1,7 +1,7 @@
 # Atuin shell history config
 
 # UI
-style = "compact"
+style = "auto"
 inline_height = 20
 show_help = false
 show_tabs = false
