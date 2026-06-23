@@ -1,9 +1,9 @@
-# Better ls — eza with colour, git status, and icons
+# Better ls — eza with colour, icons, git status, and hyperlinks
 if command -v eza &>/dev/null; then
-  alias ls='eza --group-directories-first'
-  alias ll='eza -lh --group-directories-first --git'
-  alias la='eza -lah --group-directories-first --git'
-  alias lt='eza --tree --group-directories-first'
+  alias ls='eza --group-directories-first --icons=auto'
+  alias ll='eza -lh --group-directories-first --git --icons=auto --hyperlink'
+  alias la='eza -lah --group-directories-first --git --icons=auto --hyperlink'
+  alias lt='eza --tree --group-directories-first --icons=auto'
 fi
 
 # Better cat — bat with syntax highlighting and git integration
