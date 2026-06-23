@@ -19,7 +19,7 @@ enter_accept = false    # puts selection on command line rather than executing i
 
 # Privacy
 secrets_filter = true
-store_failed = false    # don't store commands that returned non-zero exit code
+# store_failed = false    # don't store commands that returned non-zero exit code
 
 # Sync — disabled; run `atuin login` and set auto_sync = true to enable cross-machine history
 auto_sync = false

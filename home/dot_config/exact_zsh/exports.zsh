@@ -38,6 +38,10 @@ fi
 # npm
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 
+# Pager
+export PAGER='bat'
+export MANPAGER='sh -c "col -bx | bat -l man -p"'
+
 # SSH agent — macOS uses Keychain natively (see ~/.ssh/config); Linux needs manual start
 if [[ $OSTYPE != darwin* && -z "$SSH_AUTH_SOCK" ]]; then
   eval "$(ssh-agent -s)" > /dev/null
