@@ -1,3 +1,5 @@
+# shellcheck disable=SC1036,SC1073,SC1072,SC1009
+
 # complist enables colours in the menu select interface
 zmodload zsh/complist
 
@@ -41,7 +43,7 @@ fi
 # -i: silence warnings about insecure directories (common with Homebrew on macOS)
 _zcompdump="$_zsh_cache/compdump"
 autoload -Uz compinit
-# shellcheck disable=SC1036,SC1073,SC1072,SC1009  # zsh glob qualifier, not valid POSIX
+# zsh glob qualifier, not valid POSIX
 if [[ -n "$_zcompdump"(#qNm-24) ]]; then
   compinit -i -C -d "$_zcompdump"
 else

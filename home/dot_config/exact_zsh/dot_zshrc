@@ -4,12 +4,10 @@ source "$ZDOTDIR/options.zsh"
 # Environment
 source "$ZDOTDIR/exports.zsh"
 
-# Bootstrap compinit before plugins so plugins can call compdef at source time.
-# completions.zsh runs a full compinit after sheldon — this -C call just makes
-# compdef available early.
-autoload -Uz compinit && compinit -C -d "${XDG_CACHE_HOME}/zsh/compdump"
+# Completions — must run before sheldon so compdef is available for plugins
+source "$ZDOTDIR/completions.zsh"
 
-# Plugins — must load before completions so plugins can contribute to $fpath
+# Plugins
 eval "$(sheldon source)"
 
 # Word movement in vi insert mode
@@ -23,9 +21,6 @@ bindkey -M viins '\e[1;3B' insert-cycledright
 
 # Word delete — Option+Backspace in vi insert mode
 bindkey -M viins '\e^?' backward-kill-word
-
-# Completions
-source "$ZDOTDIR/completions.zsh"
 
 # Aliases
 source "$ZDOTDIR/aliases/general.zsh"
