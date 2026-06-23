@@ -11,9 +11,12 @@ if command -v bat &>/dev/null; then
   alias cat='bat --paging=never'
 fi
 
-# Better tree — erdtree
+# Better tree — erdtree (named profiles in ~/.config/erdtree/.erdtree.toml)
 if command -v erd &>/dev/null; then
   alias tree='erd'
+  alias erds='erd -c size'   # with logical file sizes (human-readable)
+  alias erdl='erd -c lines'  # with line counts
+  alias erdw='erd -c words'  # with word counts
 fi
 
 # Directory navigation

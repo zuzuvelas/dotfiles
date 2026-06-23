@@ -1,0 +1,33 @@
+# Default: icons, root at top, dirs before files, alphabetical, no disk usage
+icons = true
+layout = "inverted"
+dir-order = "first"
+sort = "name"
+suppress-size = true
+
+# erd -c size — logical file sizes, human-readable
+[size]
+icons = true
+layout = "inverted"
+dir-order = "first"
+sort = "name"
+disk-usage = "logical"
+human = true
+
+# erd -c lines — line counts
+[lines]
+icons = true
+layout = "inverted"
+dir-order = "first"
+sort = "name"
+disk-usage = "line"
+human = true
+
+# erd -c words — word counts
+[words]
+icons = true
+layout = "inverted"
+dir-order = "first"
+sort = "name"
+disk-usage = "word"
+human = true
