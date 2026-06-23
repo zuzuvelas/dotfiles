@@ -20,6 +20,9 @@ fpath=("$_zsh_completions" $fpath)
 if command -v chezmoi &>/dev/null && [[ ! -f "$_zsh_completions/_chezmoi" ]]; then
   chezmoi completion zsh > "$_zsh_completions/_chezmoi"
 fi
+if command -v erd &>/dev/null && [[ ! -f "$_zsh_completions/_erd" ]]; then
+  erd --completions zsh > "$_zsh_completions/_erd"
+fi
 if command -v mise &>/dev/null && [[ ! -f "$_zsh_completions/_mise" ]]; then
   mise completions zsh > "$_zsh_completions/_mise"
 fi
@@ -28,6 +31,9 @@ if command -v npm &>/dev/null && [[ ! -f "$_zsh_completions/_npm" ]]; then
 fi
 if command -v ng &>/dev/null && [[ ! -f "$_zsh_completions/_ng" ]]; then
   ng completion script > "$_zsh_completions/_ng"
+fi
+if command -v sheldon &>/dev/null && [[ ! -f "$_zsh_completions/_sheldon" ]]; then
+  sheldon completions --shell zsh > "$_zsh_completions/_sheldon"
 fi
 
 # Initialise completion system with 24h cache
