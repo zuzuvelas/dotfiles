@@ -1,0 +1,7 @@
+# base16-256: core colors use the terminal's system palette and adapt with
+# theme switches; fixed xterm-256 accent shades do not
+--theme=base16-256
+
+# Style:
+# git change markers in gutter, file header (name), gutter/code separator lines, line numbers
+--style=changes,header,grid,numbers
