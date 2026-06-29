@@ -16,21 +16,25 @@ opt.winborder      = 'rounded' -- Rounded borders on floating windows (LSP hover
 
 -- Indentation
 opt.expandtab      = true -- Spaces, not tabs.
-opt.shiftwidth     = 2 -- Indent size for >> / << and auto-indent.
-opt.tabstop        = 2 -- How wide a tab character displays.
-opt.softtabstop    = 2 -- How many spaces the tab key inserts.
+opt.shiftwidth     = 2    -- Indent size for >> / << and auto-indent.
+opt.tabstop        = 2    -- How wide a tab character displays.
+opt.softtabstop    = 2    -- How many spaces the tab key inserts.
 opt.smartindent    = true -- Auto-indent new lines based on context.
 
 -- Search
-opt.ignorecase     = true -- Case-insensitive search by default...
-opt.smartcase      = true -- ...unless the pattern contains an uppercase letter.
+opt.ignorecase     = true  -- Case-insensitive search by default...
+opt.smartcase      = true  -- ...unless the pattern contains an uppercase letter.
 opt.hlsearch       = false -- Don't persist search highlights after moving away.
 
 -- File Handling
-opt.undofile       = true -- Persist undo history to disk. Survives closing and reopening files.
+opt.undofile       = true  -- Persist undo history to disk. Survives closing and reopening files.
 opt.swapfile       = false -- No swap files.
 opt.backup         = false -- No backup files.
-opt.updatetime     = 250 -- Fire CursorHold faster. LSP hover and gitsigns depend on this.
+opt.updatetime     = 250   -- Fire CursorHold faster. LSP hover and gitsigns depend on this.
+
+-- Folds
+opt.foldlevel      = 99 -- Don't auto-collapse folds on open.
+opt.foldlevelstart = 99 -- Files open with all folds expanded.
 
 -- Clipboard
 opt.clipboard      = 'unnamedplus' -- Sync yanks and pastes with the system clipboard.
@@ -40,5 +44,5 @@ opt.splitbelow     = true -- Horizontal splits open below the current window.
 opt.splitright     = true -- Vertical splits open to the right.
 
 -- Editing
-opt.timeoutlen     = 500                            -- Ms to wait for a key sequence (e.g. leader combos).
+opt.timeoutlen     = 500                               -- Ms to wait for a key sequence (e.g. leader combos).
 opt.completeopt    = { 'menu', 'menuone', 'noinsert' } -- Don't auto-select completions; wait for explicit choice.

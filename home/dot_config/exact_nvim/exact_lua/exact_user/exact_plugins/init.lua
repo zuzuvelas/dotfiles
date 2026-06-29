@@ -14,8 +14,14 @@ vim.opt.rtp:prepend(lazypath)
 -- Plugin list.
 require('lazy').setup({
   { import = 'user.plugins.colorscheme' },
+  { import = 'user.plugins.treesitter' },
+  { import = 'user.plugins.lsp' },
+  { import = 'user.plugins.completion' },
+  { import = 'user.plugins.snacks' },
+  { import = 'user.plugins.gitsigns' },
+  { import = 'user.plugins.conform' },
+  { import = 'user.plugins.statusline' },
 }, {
-  -- lazy.nvim options
   install = {
     colorscheme = { 'catppuccin' },
   },

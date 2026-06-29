@@ -10,6 +10,29 @@ return {
     },
     no_bold = true,
     term_colors = true,
+    integrations = {
+      treesitter = true,
+      mason = true,
+      gitsigns = true,
+      blink_cmp = true,
+      native_lsp = {
+        enabled = true,
+        -- Italics for virtual text (the inline notes), underlines for the actual error squiggle.
+        virtual_text = {
+          errors      = { 'italic' },
+          hints       = { 'italic' },
+          warnings    = { 'italic' },
+          information = { 'italic' },
+        },
+        underlines = {
+          errors      = { 'underline' },
+          hints       = { 'underline' },
+          warnings    = { 'underline' },
+          information = { 'underline' },
+        },
+        inlay_hints = { background = true },
+      },
+    },
     color_overrides = {
       mocha = {
         rosewater = '#f4e0e0',
