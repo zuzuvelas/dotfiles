@@ -1,0 +1,29 @@
+gui:
+  # Use Nerd Font glyphs for file icons — you have CommitMono Nerd Font installed
+  nerdFontsVersion: "3"
+
+  theme:
+    # Active panel border — Zuppuccin dark mauve (high contrast on dark bg)
+    activeBorderColor:
+      - "#c7abdf"
+      - bold
+    # Inactive borders — surface2
+    inactiveBorderColor:
+      - "#585b70"
+    # Selected line background — surface0
+    selectedLineBgColor:
+      - "#313244"
+    # Untracked/new files — green
+    unstagedChangesColor:
+      - "#a6e3a1"
+
+git:
+  pagers: [
+      colorArg: always,
+      # bat as the pager — you already have it installed
+      pager: bat --plain --language=diff,
+    ]
+
+os:
+  # Opens files for editing in Neovim
+  editPreset: nvim

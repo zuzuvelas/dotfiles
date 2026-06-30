@@ -14,6 +14,8 @@ return {
       replace_netrw = true,
     },
 
+    lazygit = { enabled = true },
+
     -- Disable treesitter/syntax for files over ~1.5MB — prevents editor lockup.
     bigfile = { enabled = true },
   },
@@ -29,6 +31,11 @@ return {
     map('n', '<leader>fr', function() snacks.picker.recent() end, { desc = 'Recent files' })
     map('n', '<leader>fe', function() snacks.explorer() end, { desc = 'File explorer' })
     map({ 'n', 'x' }, '<leader>fw', function() snacks.picker.grep_word() end, { desc = 'Grep word/selection' })
+
+    -- Lazygit keymaps.
+    map('n', '<leader>gg', function() snacks.lazygit() end, { desc = 'Lazygit' })
+    map('n', '<leader>gl', function() snacks.lazygit.log() end, { desc = 'Git log (repo)' })
+    map('n', '<leader>gL', function() snacks.lazygit.log_file() end, { desc = 'Git log (file)' })
 
     -- LSP navigation via snacks picker — shows results in a searchable list.
     -- Set up in LspAttach so keymaps only apply to buffers with an active server.

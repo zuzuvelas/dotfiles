@@ -21,6 +21,18 @@
 [merge]
   ff = only
 
+[fetch]
+  prune = true
+
+[rerere]
+  enabled = true
+
+[branch]
+  sort = -committerdate
+
+[commit]
+  verbose = true
+
 [alias]
   lg = log --oneline --graph --decorate --all
   st = status -s

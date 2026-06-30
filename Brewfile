@@ -19,13 +19,14 @@ brew "erdtree"
 brew "mise"
 
 # Dev tools
-brew "age"
-brew "bitwarden-cli"
-brew "ktlint"
-brew "shellcheck"
 brew "tmux"
 brew "neovim"
 brew "tree-sitter-cli"
+brew "lazygit"
+brew "ktlint"
+brew "shellcheck"
+brew "age"
+brew "bitwarden-cli"
 
 # Fonts
 cask "font-commit-mono-nerd-font"
