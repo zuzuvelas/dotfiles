@@ -1,3 +1,5 @@
+# shellcheck disable=SC1090
+
 # Shell options
 source "$ZDOTDIR/options.zsh"
 
@@ -23,12 +25,10 @@ bindkey -M viins '\e[1;3B' insert-cycledright
 bindkey -M viins '\e^?' backward-kill-word
 
 # Aliases
-source "$ZDOTDIR/aliases/general.zsh"
-source "$ZDOTDIR/aliases/git.zsh"
-source "$ZDOTDIR/aliases/docker.zsh"
+for f in "$ZDOTDIR/aliases"/*.zsh; do source "$f"; done
 
 # Functions
-source "$ZDOTDIR/functions.zsh"
+for f in "$ZDOTDIR/functions"/*.zsh; do source "$f"; done
 
 # fzf — shell integration for Ctrl+T (files) and Alt+C (dirs)
 # Must come before atuin so atuin can override fzf's Ctrl+R binding
