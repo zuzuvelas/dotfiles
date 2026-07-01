@@ -4,6 +4,7 @@ if [[ $OSTYPE == darwin* ]]; then
 else
   export ANDROID_HOME="$HOME/Android/Sdk"
 fi
+export ANDROID_USER_HOME="$XDG_DATA_HOME/android"
 path=("$ANDROID_HOME/emulator" "$ANDROID_HOME/platform-tools" "${path[@]}")
 
 # Claude Code
@@ -50,8 +51,12 @@ elif [[ $OSTYPE == linux* ]]; then
   path=("$HOME/.local/share/JetBrains/Toolbox/scripts" "${path[@]}")
 fi
 
+# Less
+export LESSHISTFILE="$XDG_STATE_HOME/less/history"
+
 # npm
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 
 # Pager
 export PAGER='bat'

@@ -10,7 +10,7 @@ show_preview = false
 # Search & filter
 search_mode = "fuzzy"
 filter_mode = "global"
-workspaces = true                              # filter by git repo root, not exact directory
+workspaces = true                             # filter by git repo root, not exact directory
 filter_mode_shell_up_key_binding = "session"  # up arrow shows current session only; ctrl+r is global
 
 # Behavior
@@ -23,3 +23,7 @@ secrets_filter = true
 
 # Sync — disabled; run `atuin login` and set auto_sync = true to enable cross-machine history
 auto_sync = false
+
+# Logs — redirect from ~/.atuin/logs to XDG state dir
+[logs]
+dir = "~/.local/state/atuin"
