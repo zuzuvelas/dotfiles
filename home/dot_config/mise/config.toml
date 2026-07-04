@@ -3,6 +3,7 @@ auto_install = true
 
 [tools]
 java   = "temurin-25"
+bun    = "latest"
 node   = "lts"
 ruby   = "latest"
 python = "latest"

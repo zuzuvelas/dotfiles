@@ -54,6 +54,11 @@ fi
 # Less
 export LESSHISTFILE="$XDG_STATE_HOME/less/history"
 
+# Bun
+export BUN_INSTALL="$XDG_DATA_HOME/bun"
+export BUN_INSTALL_CACHE_DIR="$XDG_CACHE_HOME/bun"
+path=("$BUN_INSTALL/bin" "${path[@]}")
+
 # npm
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"

@@ -19,6 +19,12 @@ fpath=("$_zsh_completions" $fpath)
 
 # Generate completions for tools that provide them dynamically
 # Delete $_zsh_completions to force regeneration after tool updates
+if command -v atuin &>/dev/null && [[ ! -f "$_zsh_completions/_atuin" ]]; then
+  atuin gen-completions --shell zsh > "$_zsh_completions/_atuin"
+fi
+if command -v bun &>/dev/null && [[ ! -f "$_zsh_completions/_bun" ]]; then
+  bun completions > "$_zsh_completions/_bun"
+fi
 if command -v chezmoi &>/dev/null && [[ ! -f "$_zsh_completions/_chezmoi" ]]; then
   chezmoi completion zsh > "$_zsh_completions/_chezmoi"
 fi
@@ -27,9 +33,6 @@ if command -v erd &>/dev/null && [[ ! -f "$_zsh_completions/_erd" ]]; then
 fi
 if command -v mise &>/dev/null && [[ ! -f "$_zsh_completions/_mise" ]]; then
   mise completions zsh > "$_zsh_completions/_mise"
-fi
-if command -v npm &>/dev/null && [[ ! -f "$_zsh_completions/_npm" ]]; then
-  npm completion > "$_zsh_completions/_npm"
 fi
 if command -v ng &>/dev/null && [[ ! -f "$_zsh_completions/_ng" ]]; then
   ng completion script > "$_zsh_completions/_ng"
@@ -40,11 +43,12 @@ fi
 
 # Initialise completion system with 24h cache
 # m-24: file fresh (< 24h) → use -C (skip rescan); missing or old → full rescan
+# -nt: full rescan if completions dir is newer than compdump (new file was generated)
 # -i: silence warnings about insecure directories (common with Homebrew on macOS)
 _zcompdump="$_zsh_cache/compdump"
 autoload -Uz compinit
 # zsh glob qualifier, not valid POSIX
-if [[ -n "$_zcompdump"(#qNm-24) ]]; then
+if [[ -n "$_zcompdump"(#qNm-24) && ! "$_zsh_completions" -nt "$_zcompdump" ]]; then
   compinit -i -C -d "$_zcompdump"
 else
   compinit -i -d "$_zcompdump"
