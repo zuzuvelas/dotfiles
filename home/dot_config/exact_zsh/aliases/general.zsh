@@ -24,6 +24,10 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+# Editor
+alias vim='nvim'
+alias vi='nvim'
+
 # Safety nets
 alias mkdir='mkdir -p'
 alias rm='rm -i'
