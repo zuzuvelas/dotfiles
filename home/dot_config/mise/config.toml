@@ -2,7 +2,7 @@
 auto_install = true
 
 [tools]
-java   = "temurin-21"
+java   = "temurin-25"
 node   = "lts"
 ruby   = "latest"
 python = "latest"
