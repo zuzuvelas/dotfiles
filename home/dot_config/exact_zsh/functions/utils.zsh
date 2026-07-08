@@ -8,7 +8,7 @@ _copy_to_clipboard() {
   elif command -v xclip &>/dev/null; then
     xclip -selection clipboard
   else
-    echo "copypath: no clipboard tool found (install xclip or wl-clipboard)" >&2
+    echo "copypath: no clipboard tool found (install wl-clipboard or xclip)" >&2
     return 1
   fi
 }

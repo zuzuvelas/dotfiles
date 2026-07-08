@@ -1,6 +1,7 @@
 # Dev tools
 brew "redis"
 brew "android-platform-tools"
+brew "ktlint"
 
 # Design
 cask "gimp"

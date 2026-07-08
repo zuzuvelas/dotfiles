@@ -7,6 +7,42 @@ success() { printf '\033[0;32m  ✓\033[0m %s\n' "$*"; }
 warn()    { printf '\033[0;33m  !\033[0m %s\n' "$*" >&2; }
 error()   { printf '\033[0;31mError:\033[0m %s\n' "$*" >&2; exit 1; }
 
+# --- Arch package installer ---
+# Reads an Archfile (pacman/paru directives, one package per line).
+# pacman entries: installed unattended (packages are signed).
+# paru entries: installed interactively (review PKGBUILDs before accepting).
+arch_bundle() {
+  local file="$1"
+  local pacman_pkgs=()
+  local paru_pkgs=()
+
+  while IFS= read -r line; do
+    line="${line%%#*}"
+    line="${line#"${line%%[![:space:]]*}"}"
+    line="${line%"${line##*[![:space:]]}"}"
+    [[ -z "$line" ]] && continue
+
+    local directive pkg
+    directive="${line%% *}"
+    pkg="${line#* }"
+    pkg="${pkg//\"/}"
+    pkg="${pkg//\'/}"
+
+    case "$directive" in
+      pacman) pacman_pkgs+=("$pkg") ;;
+      paru)   paru_pkgs+=("$pkg") ;;
+    esac
+  done < "$file"
+
+  if [[ ${#pacman_pkgs[@]} -gt 0 ]]; then
+    sudo pacman -S --needed --noconfirm "${pacman_pkgs[@]}"
+  fi
+
+  if [[ ${#paru_pkgs[@]} -gt 0 ]]; then
+    paru -S --needed "${paru_pkgs[@]}"
+  fi
+}
+
 REPO_URL="https://github.com/zuzuvelas/dotfiles"
 GITHUB_USERNAME="zuzuvelas"
 CHEZMOI_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/chezmoi"
@@ -20,6 +56,11 @@ case "$(uname -s)" in
 esac
 
 info "Bootstrapping dotfiles on $OS"
+
+# --- Linux: paru check ---
+if [[ "$OS" == "linux" ]] && ! command -v paru &>/dev/null; then
+  error "paru not found. Install it first:\n  git clone https://aur.archlinux.org/paru-bin.git && cd paru-bin && makepkg -si"
+fi
 
 # --- macOS: Homebrew first ---
 if [[ "$OS" == "macos" ]]; then
@@ -41,14 +82,14 @@ setup_age_key() {
     return
   fi
 
-  if [[ "$OS" == "linux" ]]; then
-    error "age key not found at $AGE_KEY_PATH. On Linux, install the Bitwarden CLI manually,\n       run: bw login && bw unlock\n       then: bw get notes chezmoi-age-key > $AGE_KEY_PATH && chmod 600 $AGE_KEY_PATH\n       then re-run this script."
-  fi
-
   info "age key not found — retrieving from Bitwarden..."
 
   if ! command -v bw &>/dev/null; then
-    brew install bitwarden-cli
+    if [[ "$OS" == "macos" ]]; then
+      brew install bitwarden-cli
+    else
+      sudo pacman -S --needed --noconfirm bitwarden-cli
+    fi
   fi
 
   local bw_status
@@ -60,7 +101,8 @@ setup_age_key() {
   fi
 
   info "Unlock your Bitwarden vault..."
-  export BW_SESSION=$(bw unlock --raw)
+  BW_SESSION=$(bw unlock --raw)
+  export BW_SESSION
 
   bw sync --quiet
 
@@ -111,11 +153,21 @@ if [[ "$OS" == "macos" ]]; then
   success "Runtimes ready"
 fi
 
-# --- Linux: manual steps reminder ---
+# --- Linux: packages, cargo tools, and runtimes ---
 if [[ "$OS" == "linux" ]]; then
-  warn "Linux detected — package installation is not automated yet."
-  warn "Install tools manually or via your distro's package manager."
-  warn "Then run: mise install"
+  info "Installing packages..."
+  arch_bundle "$CHEZMOI_DIR/Archfile"
+  success "Archfile done"
+
+  info "Installing cargo tools..."
+  cargo install --no-confirm erdtree
+  cargo binstall --no-confirm tree-sitter-cli
+  success "Cargo tools done"
+
+  warn "Two fonts require manual installation:"
+  warn "  Lora:       https://fonts.google.com/specimen/Lora"
+  warn "  Newsreader: https://fonts.google.com/specimen/Newsreader"
+  warn "  Download, extract to ~/.local/share/fonts/, then run: fc-cache -fv"
 fi
 
 success "Done. Open a new shell to get started."
