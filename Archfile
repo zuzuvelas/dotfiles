@@ -33,7 +33,7 @@ pacman "cargo-binstall"
 
 # Fonts
 pacman "inter-font"
-pacman "otf-commit-mono-nerd"
+pacman "ttf-jetbrains-mono-nerd"
 # lora: manual install from https://fonts.google.com/specimen/Lora
 # newsreader: manual install from https://fonts.google.com/specimen/Newsreader
 

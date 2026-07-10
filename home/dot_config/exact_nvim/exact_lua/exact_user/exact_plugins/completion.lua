@@ -13,7 +13,7 @@ return {
     },
 
     appearance = {
-      -- Tell blink.cmp the Nerd Font glyphs in CommitMono are single-width.
+      -- Tell blink.cmp the Nerd Font glyphs are single-width.
       nerd_font_variant = 'mono',
     },
 

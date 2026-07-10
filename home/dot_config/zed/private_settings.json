@@ -29,7 +29,7 @@
   "git_panel": {
     "dock": "left"
   },
-  "buffer_font_family": "CommitMono Nerd Font",
+  "buffer_font_family": "JetBrainsMono Nerd Font",
   "telemetry": {
     "diagnostics": false,
     "metrics": false,

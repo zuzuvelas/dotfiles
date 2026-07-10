@@ -1,5 +1,5 @@
 gui:
-  # Use Nerd Font glyphs for file icons — you have CommitMono Nerd Font installed
+  # Use Nerd Font glyphs for file icons
   nerdFontsVersion: "3"
 
   theme:

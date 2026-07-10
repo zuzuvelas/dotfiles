@@ -28,7 +28,7 @@ brew "age"
 brew "bitwarden-cli"
 
 # Fonts
-cask "font-commit-mono-nerd-font"
+cask "font-jerbrains-mono-nerd-font"
 cask "font-inter"
 cask "font-lora"
 cask "font-newsreader"

@@ -1,5 +1,5 @@
 -- lualine — statusline
--- nvim-web-devicons provides filetype icons (CommitMono Nerd Font has the glyphs).
+-- nvim-web-devicons provides filetype icons (Nerd Font has the glyphs).
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons', },
