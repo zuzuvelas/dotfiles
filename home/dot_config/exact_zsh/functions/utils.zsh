@@ -18,9 +18,11 @@ mkcd() {
   mkdir -p "$1" && cd "$1" || return
 }
 
-# Copy the current working directory path to the clipboard
+# Copy the current working directory (or a given relative/absolute path) to the clipboard
 copypath() {
-  pwd | tr -d '\n' | _copy_to_clipboard && echo "Copied: $(pwd)"
+  local target="${1:-.}"
+  local abs_path="${target:a}"
+  echo -n "$abs_path" | _copy_to_clipboard && echo "Copied: $abs_path"
 }
 
 # Copy a file's contents to the clipboard

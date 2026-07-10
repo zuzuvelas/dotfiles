@@ -2,8 +2,10 @@
 
 # --- Global defaults ---
 Host *
+{{- if ne .profile "work" }}
   # Use the XDG-respecting key location
   IdentityFile ~/.ssh/id_ed25519
+{{- end }}
   # Reuse existing connections — faster subsequent connections to the same host
   ControlMaster auto
   ControlPath ~/.ssh/control/%r@%h:%p
@@ -18,14 +20,11 @@ Host *
 {{ end }}
 
 # --- Personal hosts ---
-# Add entries here as needed, e.g.:
-# Host my-server
-#   HostName 192.168.1.100
-#   User zuzuvelas
-#   IdentityFile ~/.ssh/id_ed25519
+Host github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519
+  IdentitiesOnly yes
 
-# --- Work hosts ---
-# Host work-server
-#   HostName work.example.com
-#   User jshields
-#   IdentityFile ~/.ssh/work_ed25519
+{{ if eq .profile "work" -}}
+{{ include "private_dot_ssh/encrypted_config-work.age" | decrypt -}}
+{{ end -}}
