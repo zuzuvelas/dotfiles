@@ -20,7 +20,7 @@ $cmd_duration\
 $line_break\
 $character"""
 
-right_format = "$java$kotlin$swift  $nodejs$ruby$python"
+right_format = "$java$kotlin$swift  $nodejs$ruby$python "
 
 add_newline = true
 
@@ -160,7 +160,7 @@ truncation_symbol = "…"
 
 [git_status]
 style = "bg:yellow"
-format = '[[($ahead_behind$staged$modified$untracked )](fg:crust bg:yellow)]($style)'
+format = '[[($conflicted$ahead_behind$staged$modified$deleted$untracked )](fg:crust bg:yellow)]($style)'
 ahead      = "⇡$count"
 behind     = "⇣$count"
 diverged   = "⇕"
