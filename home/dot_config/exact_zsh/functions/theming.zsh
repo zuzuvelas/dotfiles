@@ -19,7 +19,11 @@ zwhiskers() {
   local repo_root source_json overrides
   repo_root=$(git -C "$(chezmoi source-path)" rev-parse --show-toplevel) || return 1
   source_json="$repo_root/themes/zuppuccin.json"
-  overrides=$(jq -c ".${palette}.palette" "$source_json") || return 1
+
+  # wrap palette under the flavor key and strip leading '#' from every hex value
+  overrides=$(jq -c --arg flavor "$flavor" \
+    '{($flavor): (.'"${palette}"'.palette | map_values(ltrimstr("#")))}' \
+    "$source_json") || return 1
 
   whiskers -f "$flavor" --color-overrides "$overrides" "$template" "$@"
 }

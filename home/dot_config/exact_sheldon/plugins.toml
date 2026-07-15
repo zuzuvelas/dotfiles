@@ -24,10 +24,6 @@ remote = "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 
-# History search — up/down arrows filter history by current typed prefix
-[plugins.zsh-history-substring-search]
-github = "zsh-users/zsh-history-substring-search"
-
 # fzf-tab — replaces completion menu with fzf interface
 # Must load after other completion plugins, before syntax-highlighting
 [plugins.fzf-tab]
