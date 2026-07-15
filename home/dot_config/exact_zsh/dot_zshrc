@@ -42,5 +42,11 @@ eval "$(thefuck --alias)"
 # History — overrides fzf's Ctrl+R with atuin's fuzzy search
 eval "$(atuin init zsh)"
 
+# Exclude AI-agent-run commands from autosuggestions, while
+# keeping them in atuin history
+_zsh_autosuggest_strategy_atuin() {
+    suggestion=$(ATUIN_QUERY="$1" atuin search --cmd-only --limit 1 --search-mode prefix --author '$all-user' 2>/dev/null)
+}
+
 # Prompt
 source "$ZDOTDIR/prompt.zsh"

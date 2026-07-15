@@ -79,5 +79,5 @@ export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 export _ZO_DATA_DIR="$XDG_DATA_HOME/zoxide"
 export _ZO_EXCLUDE_DIRS="**/node_modules"
 
-# zsh-autosuggestions — skip suggesting overly long buffered commands
+# zsh-autosuggestions
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
