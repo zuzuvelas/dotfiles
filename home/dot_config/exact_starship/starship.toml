@@ -20,7 +20,7 @@ $cmd_duration\
 $line_break\
 $character"""
 
-right_format = "$java$kotlin$swift  $nodejs$ruby$python "
+right_format = "$java$kotlin$swift  $nodejs$ruby$python"
 
 add_newline = true
 
