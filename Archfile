@@ -2,6 +2,7 @@
 pacman "chezmoi"
 pacman "starship"
 pacman "git"
+pacman "fastfetch"
 
 # Shell UX
 pacman "atuin"

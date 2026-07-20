@@ -50,3 +50,6 @@ _zsh_autosuggest_strategy_atuin() {
 
 # Prompt
 source "$ZDOTDIR/prompt.zsh"
+
+# fastfetch
+# command -v fastfetch &>/dev/null && fastfetch

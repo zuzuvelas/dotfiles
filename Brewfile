@@ -3,6 +3,7 @@ brew "chezmoi"
 brew "sheldon"
 brew "starship"
 brew "git"
+brew "fastfetch"
 
 # Shell UX
 brew "atuin"
