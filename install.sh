@@ -97,11 +97,14 @@ setup_age_key() {
 
   if [[ "$bw_status" == "unauthenticated" ]]; then
     info "Log into Bitwarden..."
-    bw login
+    bw login < /dev/tty
   fi
 
   info "Unlock your Bitwarden vault..."
-  BW_SESSION=$(bw unlock --raw)
+  read -rsp "Master password: " bw_password < /dev/tty
+  echo
+  BW_SESSION=$(echo "$bw_password" | bw unlock --raw)
+  unset bw_password
   export BW_SESSION
 
   bw sync --quiet
