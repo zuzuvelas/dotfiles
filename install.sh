@@ -163,8 +163,8 @@ if [[ "$OS" == "linux" ]]; then
   success "Archfile done"
 
   info "Installing cargo tools..."
-  cargo install --no-confirm erdtree
-  cargo binstall --no-confirm tree-sitter-cli
+  cargo install erdtree
+  cargo binstall tree-sitter-cli
   success "Cargo tools done"
 
   warn "Two fonts require manual installation:"
