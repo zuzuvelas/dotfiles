@@ -34,5 +34,9 @@
       }
     ]
   },
-  "theme": "auto"
+  "theme": "auto",
+  "enabledPlugins": {
+    "kotlin-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
+  }
 }

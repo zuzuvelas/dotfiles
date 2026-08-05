@@ -3,6 +3,13 @@ brew "redis"
 brew "android-platform-tools"
 brew "ktlint"
 
+# VPN — openfortivpn + Touch ID-backed passphrase entry
+# After install, run once: pinentry-touchid -fix
+tap "jorgelbg/tap"
+brew "openfortivpn"
+brew "pinentry-mac"
+brew "jorgelbg/tap/pinentry-touchid"
+
 # Design
 cask "gimp"
 cask "figma"

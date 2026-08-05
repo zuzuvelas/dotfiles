@@ -1,0 +1,16 @@
+{{- if eq .profile "work" -}}
+# Connect to the work FortiVPN gateway
+vpn-work() {
+  local otp
+  read -rs "otp?FortiToken OTP: "
+  echo >&2
+
+  if [[ -z "$otp" ]]; then
+    echo "vpn-work: no OTP entered" >&2
+    return 1
+  fi
+
+  echo "openfortivpn needs root to create the tun device — requesting sudo" >&2
+  sudo openfortivpn -c "$HOME/.config/openfortivpn/config-work" --otp="$otp"
+}
+{{- end -}}
