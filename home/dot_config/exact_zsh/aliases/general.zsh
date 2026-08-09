@@ -24,6 +24,10 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+if [[ $OSTYPE == linux* ]]; then
+  alias open='xdg-open'
+fi
+
 # Editor
 alias vim='nvim'
 alias vi='nvim'
