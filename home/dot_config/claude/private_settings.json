@@ -35,6 +35,8 @@
     ]
   },
   "theme": "auto",
+  "tui": "fullscreen",
+  "outputStyle": "Concise",
   "enabledPlugins": {
     "kotlin-lsp@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true
