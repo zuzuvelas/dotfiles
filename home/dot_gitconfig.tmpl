@@ -36,3 +36,5 @@
 [alias]
   lg = log --oneline --graph --decorate --all
   st = status -s
+  mr = "!f() { git fetch \"$1\" \"+merge-requests/$2/head:mr-$1-$2\" && git checkout \"mr-$1-$2\"; }; f"
+  pr = "!f() { git fetch \"$1\" \"+pull/$2/head:pr-$1-$2\" && git checkout \"pr-$1-$2\"; }; f"
